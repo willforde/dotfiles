@@ -1,18 +1,15 @@
 # Dotfiles
-================
 
 This repository contains my personal dotfiles, which are used to configure my development environment.
 
 
 ## Table of Contents
------------------
 
 * [Installation](#installation)
 * [Including Dotfiles](#including-dotfiles)
 
 
 ## Installation
----------------
 
 To use these dotfiles, simply clone this repository to your home directory and run the installation script.
 
@@ -27,7 +24,6 @@ This will symlink the dotfiles in the `dotfiles` directory to your home director
 
 
 ## Including Dotfiles
----------------
 
 After installation is complete, there will be a script added to the `~/.local/bin` directory that can be used to add dotfiles to the repo. When used it will move a file to the dotfiles repo and create a symlink in your home directory.
 

@@ -1,0 +1,42 @@
+#!/bin/bash -e
+
+# Script to move a dotfile/config to my dotfiles repo and
+# then symlink it back to the home directory
+# $1 = file to move
+
+# Get project directory by resolving symlink and
+# then getting the parent directory using relative path
+PROJECT_ROOT=$(dirname $(realpath "$0"))
+PROJECT_ROOT=$(realpath "$PROJECT_ROOT/../../..")
+SAVED_DOTFILES_DIR="$PROJECT_ROOT/dotfiles"
+
+
+if [ $# -eq 0 ]; then
+    echo "Missing required argument: file to move"
+elif [ ! -e "$1" ]; then
+    echo "File does not exist"
+elif [ -L "$1" ]; then
+    echo "File must be a regular file, not a symlink"
+elif [ ! -f "$1" ]; then
+    echo "Path must be to a regular file, not a directory"
+else
+    relative_file=$(realpath --relative-to="$HOME" "$1")
+    saved_file="$SAVED_DOTFILES_DIR/$relative_file"
+
+    # Ensure file does not already exist in dotfiles repo
+    if [ -f "$saved_file" ]; then
+        echo "File already exists in dotfiles repo: ~/$relative_file"
+    else
+        # Ensure the backup directory exists
+        mkdir -p "$(dirname "$backup_file")"
+
+        # Move file to dotfiles repo
+        echo "Saving file to dotfiles repo: ~/$relative_file"
+        mkdir -p "$(dirname "$saved_file")"
+        mv $1 $saved_file
+
+        # Symlink file back to source
+        echo "Symlinking file back to home directory: ~/$relative_file"
+        ln -s $saved_file $1
+    fi
+fi

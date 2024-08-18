@@ -11,7 +11,7 @@ This repository contains my personal dotfiles, which are used to configure my de
 
 ## Installation
 
-To use these dotfiles, simply clone this repository to your home directory and run the installation script.
+To use these dotfiles, simply clone this repository to the home directory and run the installation script.
 
 ```bash
 cd ~
@@ -20,7 +20,7 @@ cd dotfiles
 sh install.sh
 ```
 
-This will symlink the dotfiles in the `dotfiles` directory to your home directory. Any existing dotfiles in your home directory will be backed up to a backup folder within this repo.
+This will symlink the dotfiles in the `dotfiles` directory to the home directory. Any existing dotfiles in the home directory will be backed up to a backup folder within this repo.
 
 
 ## Including Dotfiles

@@ -25,7 +25,7 @@ This will symlink the dotfiles in the `dotfiles` directory to the home directory
 
 ## Including Dotfiles
 
-After installation is complete, there will be a script added to the `~/.local/bin` directory that can be used to add dotfiles to the repo. When used it will move a file to the dotfiles repo and create a symlink in your home directory.
+After installation is complete, there will be a script added to the `~/.local/bin` directory that can be used to add dotfiles to the repo. When used it will move a file to the dotfiles repo and create a symlink in the home directory.
 
 ```bash
 config-add <file>

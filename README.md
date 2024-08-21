@@ -17,8 +17,8 @@ To use these dotfiles, simply clone this repository to the home directory and ru
 
 ```bash
 cd ~
-git clone https://github.com/willforde/dotfiles.git
-cd dotfiles
+git clone https://github.com/willforde/dotfiles.git .dotfiles
+cd .dotfiles
 sh install.sh
 ```
 

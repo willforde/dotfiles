@@ -14,6 +14,7 @@ It is build to support Arch linux. MacOS support coming soon. Folder structure m
 ## Installation
 
 To use these dotfiles, simply clone this repository to the home directory and run the installation script.
+You may need to install git first.
 
 ```bash
 cd ~

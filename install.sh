@@ -41,12 +41,24 @@ if [ "$DISTRO" = "Arch Linux" ]; then
     # - archey4 - nice display of system info on terminal start
     # - 1password - Password manager and secure wallet
     # - nano-syntax-highlighting-git - Syntax highlighting for nano (git version fixes issue from repo)
-    if command -v yay &> /dev/null; then
-        yay -Sy --needed --noconfirm oh-my-zsh-git chroma archey4 1password nano-syntax-highlighting-git
-    else
-        echo -e "\e[1m\e[31mYay not installed.\e[37m Please install it and re-run this script for full functionality.\e[0m"
-        exit 1
+    if ! command -v yay &> /dev/null; then
+        echo "Yay not installed. Installing..."
+        current_dir="$(pwd)"
+
+        # Download and extract yay
+        curl -SL -o /tmp/yay.tar.gz https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz
+        tar -zxvf /tmp/yay.tar.gz -C /tmp
+        rm /tmp/yay.tar.gz
+        cd /tmp/yay
+
+        # Build and install yay
+        makepkg --syncdeps --noconfirm --install
+        cd $current_dir
+        rm -rf /tmp/yay
     fi
+
+    # Install packages from the AUR
+    yay -Sy --needed --noconfirm oh-my-zsh-git chroma archey4 1password nano-syntax-highlighting-git
 fi
 
 # Loop over each and every dotfile in the dotfiles directory
@@ -83,3 +95,9 @@ find "$SAVED_DOTFILES_DIR" -type f | while IFS= read -r file; do
     echo "Creating symlink for $relative_home_file"
     ln -s $file $home_file
 done
+
+# Ensure the default shell is /bin/zsh
+if [ "$SHELL" != "/bin/zsh" ]; then
+    echo "Your current default shell is $default_shell. Changing it to /bin/zsh..."
+    chsh -s /bin/zsh
+fi

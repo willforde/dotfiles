@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/bin/bash
+set -e
 
 # Script to remove a dotfile/config from been tracked in my dotfiles repo
 # It will remove the symlink and move the file back to the home directory.

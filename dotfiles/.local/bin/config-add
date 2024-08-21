@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/bin/bash
+set -e
 
 # Script to move a dotfile/config to my dotfiles repo and
 # then symlink it back to the home directory

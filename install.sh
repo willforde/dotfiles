@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/bin/bash
+set -e
 
 # This script creates symlinks from the home directory to any desired dotfiles in the dotfiles directory.
 # If a destination dotfile already exists, it will be moved to the backup directory before creating the symlink.
@@ -93,6 +94,7 @@ find "$SAVED_DOTFILES_DIR" -type f | while IFS= read -r file; do
 
     # Create the symlink
     echo "Creating symlink for $relative_home_file"
+    mkdir -p "$(dirname "$home_file")"
     ln -s $file $home_file
 done
 

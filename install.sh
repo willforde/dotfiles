@@ -40,8 +40,9 @@ if [ "$DISTRO" = "Arch Linux" ]; then
     # - chroma - add syntax highlighting to files
     # - archey4 - nice display of system info on terminal start
     # - 1password - Password manager and secure wallet
+    # - nano-syntax-highlighting-git - Syntax highlighting for nano (git version fixes issue from repo)
     if command -v yay &> /dev/null; then
-        yay -Sy --needed --noconfirm oh-my-zsh-git chroma archey4 1password
+        yay -Sy --needed --noconfirm oh-my-zsh-git chroma archey4 1password nano-syntax-highlighting-git
     else
         echo -e "\e[1m\e[31mYay not installed.\e[37m Please install it and re-run this script for full functionality.\e[0m"
         exit 1

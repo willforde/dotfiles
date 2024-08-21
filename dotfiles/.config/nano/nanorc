@@ -1,0 +1,13 @@
+# Syntax highlighting
+include "/usr/share/nano/*.nanorc"
+include "/usr/share/nano/extra/*.nanorc"
+include "/usr/share/nano-syntax-highlighting/*.nanorc"
+
+# Disable text wrapping
+set nowrap
+
+# Use bold text instead of reverse video text.
+set boldtext
+
+# Display line numbers to the left (and any anchors in the margin)
+set linenumbers

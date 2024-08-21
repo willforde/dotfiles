@@ -39,8 +39,9 @@ if [ "$DISTRO" = "Arch Linux" ]; then
     # - oh-my-zsh-git - managed zsh config
     # - chroma - add syntax highlighting to files
     # - archey4 - nice display of system info on terminal start
+    # - 1password - Password manager and secure wallet
     if command -v yay &> /dev/null; then
-        yay -Sy --needed --noconfirm oh-my-zsh-git chroma archey4
+        yay -Sy --needed --noconfirm oh-my-zsh-git chroma archey4 1password
     else
         echo -e "\e[1m\e[31mYay not installed.\e[37m Please install it and re-run this script for full functionality.\e[0m"
         exit 1

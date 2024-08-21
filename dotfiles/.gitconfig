@@ -1,0 +1,14 @@
+[user]
+	name = William Forde
+	email = spry.iron3326@blindinbox.com
+	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDoTdWrak98z8iYctqj479hRpZHDVzfkpV83wXF0G8Cl7l5rz/o+urFWl9XmATaePD4rdmIQ6d5ZE7Mdgbr/HduKbFaOxX3Jjc9/Ts6O/u7hyWVAaKbgMqj7pdnQTBgbtt7Ha3duxTqIS3S3GOo2wvS/gumGLJjzeIpWUjahTafTp1o+YXIC2jq9SHcyJeSIwBe4A7uo+BeflBeylIAgYcsnVvcxWpXy5btMVZHdyZsVyLqz+WHaXJLBSuf0vQSjE8Mp1S6Xdxb85IIwm+/Z5Imi3WcxCm+K77JsJkBwsoeC9jldDTDmnTWmk+vE+uPy2OonxflgLsNCfwxHkxXRbxJD9IdQm/ZOdJANMK5h9EKtgXzX9RzDifBu9+Jqjn1E5mk3NMGYRV7BoOph5Xk8KI9/WyVPsQZAgWKgcm/fbLuhvFnZS4V8jQG8sioNp33nvxr2J25FeZdYbsKLodbt7aY6Pm07o3vQz2c+/gDRKyqkzUGavGf1LjvxzKItMdOwLZNp+jFEK8noXubNy2ZHXsMVUbrt12J/tCIkbMG2NMM8xj+9N3wAPkLPe0RA3AJ4Bgl8ft4Unl2OC8dpxC95VSdMSVPCwo3zK6HiBSUNhU1HL6gC1uKAYn0+KmaX/9tyxkJoRzTKPIVPTkaF/SJYYXVsWNYnrBhV7ZUC5mc/EQFeQ==
+[color]
+	ui = auto
+[commit]
+	gpgsign = true
+[core]
+	autocrlf = input
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /opt/1Password/op-ssh-sign

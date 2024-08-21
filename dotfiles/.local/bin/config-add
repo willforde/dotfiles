@@ -13,19 +13,25 @@ SAVED_DOTFILES_DIR="$PROJECT_ROOT/dotfiles"
 
 if [ $# -eq 0 ]; then
     echo "Missing required argument: file to move"
+    exit 1
 elif [ ! -e "$1" ]; then
     echo "File does not exist"
+    exit 1
 elif [ -L "$1" ]; then
     echo "File must be a regular file, not a symlink"
+    exit 1
 elif [ ! -f "$1" ]; then
     echo "Path must be to a regular file, not a directory"
+    exit 1
 else
+    # Get relative path to dotfiles repo
     relative_file=$(realpath --relative-to="$HOME" "$1")
     saved_file="$SAVED_DOTFILES_DIR/$relative_file"
 
     # Ensure file does not already exist in dotfiles repo
     if [ -f "$saved_file" ]; then
         echo "File already exists in dotfiles repo: ~/$relative_file"
+        exit 1
     else
         # Ensure the backup directory exists
         mkdir -p "$(dirname "$backup_file")"

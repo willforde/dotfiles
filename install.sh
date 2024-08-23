@@ -29,12 +29,13 @@ if [ "$DISTRO" = "Arch Linux" ]; then
     echo "Installing required system packages for Arch Linux..."
 
     # Install packages for the ~/.zshrc file
+    # - man-db - for man pages
     # - git - show git repository status
     # - zsh - the shell itself
     # - zsh-syntax-highlighting - Fish shell like syntax highlighting for Zsh
     # - zsh-autosuggestions - Fish-like autosuggestions for zsh
     # - zsh-completions - Additional completion definitions for Zsh
-    sudo pacman -Sy --needed --noconfirm git zsh zsh-syntax-highlighting zsh-autosuggestions zsh-completions
+    sudo pacman -Sy --needed --noconfirm git man-db zsh zsh-syntax-highlighting zsh-autosuggestions zsh-completions
 
     # Install packages for the ~/.zshrc from the AUR
     # - oh-my-zsh-git - managed zsh config
@@ -55,7 +56,7 @@ if [ "$DISTRO" = "Arch Linux" ]; then
         # Build and install yay
         makepkg --syncdeps --noconfirm --install
         cd $current_dir
-        rm -rf /tmp/yay
+        sudo rm -rf /tmp/yay
     fi
 
     # Install packages from the AUR

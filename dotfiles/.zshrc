@@ -51,7 +51,7 @@ less_termcap[md]="${fg_bold[green]}"
 # Misc
 # ------------------------------
 
-# Output system info using archey3 (https://lclarkmichalek.github.io/archey3/)
+# Output system info using archey4 (https://github.com/HorlogeSkynet/archey4)
 [ -r /usr/bin/archey4 ] && clear && /usr/bin/archey4
 
 # Compilation flags

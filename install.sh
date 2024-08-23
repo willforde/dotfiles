@@ -35,7 +35,8 @@ if [ "$DISTRO" = "Arch Linux" ]; then
     # - zsh-syntax-highlighting - Fish shell like syntax highlighting for Zsh
     # - zsh-autosuggestions - Fish-like autosuggestions for zsh
     # - zsh-completions - Additional completion definitions for Zsh
-    sudo pacman -Sy --needed --noconfirm git man-db zsh zsh-syntax-highlighting zsh-autosuggestions zsh-completions
+    # - lm_sensors - for battery status and temperature
+    sudo pacman -Sy --needed --noconfirm git man-db lm_sensors zsh zsh-syntax-highlighting zsh-autosuggestions zsh-completions
 
     # Install packages for the ~/.zshrc from the AUR
     # - oh-my-zsh-git - managed zsh config
@@ -61,6 +62,9 @@ if [ "$DISTRO" = "Arch Linux" ]; then
 
     # Install packages from the AUR
     yay -Sy --needed --noconfirm oh-my-zsh-git chroma archey4 1password nano-syntax-highlighting-git
+
+    # Detect and configure sensors
+    sudo sensors-detect --auto
 fi
 
 # Loop over each and every dotfile in the dotfiles directory

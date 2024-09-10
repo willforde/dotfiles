@@ -1,0 +1,142 @@
+/* Colors file */
+@import 'colors.css';
+* {
+	all: unset; /*this is really important to isolate waybar from gtk*/
+	font-family: "JetBrainsMono Nerd Font";
+	font-size: 15px;
+	font-weight: normal;
+}
+
+/* TOOLTIP */
+tooltip {
+	background: @background;
+    border: 1.5px solid @color5;
+	border-radius: 8px;
+    padding: 2px 100px;
+}
+
+/* COMMON CONFIGS */
+#tray *,
+#powers *,
+#quicklinks * {
+    border-radius: 8px;
+    color: @foreground;
+}
+
+#hardware,
+#network,
+#tray,
+#workspaces,
+#pulseaudio,
+#wireplumber,
+#powers,
+#laptop,
+#power-profiles-daemon,
+#custom-notification,
+#idle_inhibitor,
+#clock,
+#quicklinks {
+    color: @foreground;
+    border-radius: 10px;
+    background: @background;
+    padding: 3px 7px;
+    margin: 4.5px 0px;
+    opacity: 0.9;
+}
+
+/* Center element */
+#clock {
+    padding: 3px 12px;
+    opacity: 1;
+}
+
+#network {
+    padding-left: 12px;
+	padding-right: 18px;
+}
+
+#custom-notification {
+    padding-left: 12px;
+	padding-right: 16px;
+}
+
+/* Center side elements */
+#idle_inhibitor {
+    padding-left: 12px;
+	padding-right: 12px;
+}
+
+#tray {
+    background-color: rgba(9,8,33,0.5);
+    border-radius:10px;
+    margin-left:3px;
+    margin-top: 5px;
+}
+
+
+/* quicklinks  */
+#powers,
+#quicklinks {
+    background: @color1;
+}
+#powers {
+    padding-right: 0px;
+    margin-right: 7px;
+}
+#quicklinks {
+    margin-left: 7px;
+}
+#powers *,
+#quicklinks * {
+    padding: 0px 5px;
+	transition: all 0.2s ease-in-out;
+}
+#powers *:hover,
+#quicklinks *:hover {
+    background: @color11;
+}
+
+/* power-menu */
+#custom-power-menu {
+    color: #f7768e; /* red clor */
+    padding-right: 3px;
+    padding-left: 7px;
+}
+
+
+/* workspaces */
+#workspaces {
+    background: @background;
+    margin: 4.5px 0px;
+    padding: 1.5px;
+    border-radius: 10px;
+}
+#workspaces button {
+    background: @color3;
+    min-width: 25px;
+    margin: 2px;
+	transition: all 0.2s ease-in-out;
+    padding: 1px;
+    padding-left: 4px; /* because browser and filebrowser icons are NOT fully centered */
+    opacity: 0.8;
+    border-radius: 10px;
+}
+#workspaces button:nth-child(first) {
+    padding-left: 0px; /* because code icon IS fully centered */
+}
+#workspaces button:hover {
+    opacity: 1;
+    background: @color11;
+}
+#workspaces button.active { 
+    background: @color1;
+    min-width: 25px;
+    border-radius: 10px;
+	transition: all 0.2s ease-in-out;
+    padding: 0px 14px;
+    opacity: 0.9;
+}
+#workspaces button.urgent {
+	color: @foreground;
+	transition: all 0.3s ease-in-out;
+}

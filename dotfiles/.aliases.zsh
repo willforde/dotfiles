@@ -10,6 +10,7 @@ alias pacinfo="/usr/bin/pacman -Si"
 
 # Yay aliases
 alias yayup="yay -Syu --devel --timeupdate"
+alias yayin="yay -Sy"
 
 # Protection aliases
 alias chown="chown --preserve-root"

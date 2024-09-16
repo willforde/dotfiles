@@ -1,6 +1,6 @@
 * {
     font: "JetBrainsMono Nerd Font 14";
-    background:     rgba(1,2,4, 0.8);
+    background:     rgba(1,2,4, 0.6);
     background-alt: rgba(11,19,25, 0.15);
     foreground:     rgba(202,230,230, 1);
     selected:       rgba(20,39,46, 0.7);

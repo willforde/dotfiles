@@ -19,8 +19,9 @@
 # - swww => Wallpaper manager with animations
 # - imagemagick => Manipulate wallpaper images
 # - waypaper => Wallpaper selector
-# - libnotify => Tool to interact with notification center
-sudo pacman -Sy hyprland hyprlock hypridle xdg-desktop-portal-hyprland polkit-kde-agent pipewire wireplumber qt5-wayland qt6-wayland swaync waybar power-profiles-daemon brightnessctl cliphist rofi-wayland sddm swww imagemagick libnotify
+# - libnotify => Tool to interact with notificat=ion center
+# - playerctl => Media controls
+sudo pacman -Sy hyprland hyprlock hypridle xdg-desktop-portal-hyprland polkit-kde-agent pipewire wireplumber qt5-wayland qt6-wayland swaync waybar power-profiles-daemon brightnessctl cliphist rofi-wayland sddm swww imagemagick libnotify playerctl
 yay -Sy wlogout waypaper
 
 

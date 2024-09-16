@@ -1,25 +1,20 @@
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,run,window";
+	modi:                       "drun,run";
     show-icons:                 true;
     display-drun:               " ";
     display-run:                " ";
-    display-window:             " ";
-    application-fallback-icon:  "/home/hrigved/Pictures/Icons/run-fallback-icon.png";
 	drun-display-format:        "{name}";
 
     kb-remove-to-eol: "";
     kb-mode-complete: "";
-
     kb-accept-entry: "Tab,Return";
     kb-element-next: "Control+j";
     kb-element-prev: "Control+k";
-    /*kb-row-left: "Control+h";*/
-    kb-row-right: "Control+l";
 }
 
 /*****----- Global Properties -----*****/
-@import                          "../colors.rasi"
+@import                          "./colors.rasi"
 
 /*****----- Main Window -----*****/
 window {
@@ -27,12 +22,13 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       550px;
+    width:                       1000px;
     x-offset:                    0px;
     y-offset:                    0px;
 
     enabled:                     true;
-    border-radius:               12px;
+    /* border:                      1px; */
+    border-radius:               20px;
     border-color:                @selected;
     background-color:            @background;
     cursor:                      "default";
@@ -45,7 +41,7 @@ mainbox {
     padding:                     20px;
     border-color:                @selected;
     background-color:            transparent;
-    children:                    [ "inputbar", "listview" ]; /*, "mode-switcher"]; */
+    children:                    [ "inputbar", "listview"];
 }
 
 /*****----- Inputbar -----*****/
@@ -89,8 +85,8 @@ entry {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     1;
-    lines:                       8;
+    columns:                     2;
+    lines:                       6;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -138,7 +134,7 @@ element selected.normal {
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
-    size:                        32px;
+    size:                        48px;
     cursor:                      inherit;
 }
 element-text {
@@ -175,17 +171,18 @@ button selected {
 
 /*****----- Message -----*****/
 error-message {
-    padding:                     15px;
-    border:                      2px solid;
-    border-radius:               12px;
+    padding:                     20px;
+    border:                      8px solid;
+    border-radius:               15px;
     border-color:                @selected;
-    background-color:            @background;
+    background-color:            transparent;
     text-color:                  @foreground;
 }
 textbox {
+    padding:                     20px;
+    border-radius:               12px;
     background-color:            @background;
     text-color:                  @foreground;
     vertical-align:              0.5;
     horizontal-align:            0.0;
-    highlight:                   none;
 }

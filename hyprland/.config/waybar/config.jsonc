@@ -1,245 +1,244 @@
 // -*- mode: jsonc -*-
 {
-    "font": "JetBrainsMono Nerd Font",
-    "reload_style_on_change": true,
-    "spacing": 7, // Gaps between modules (4px)
-    "modules-left": [
-      "group/quicklinks",
-      "hyprland/workspaces",
-      // "hyprland/window",
-      "tray"
-    ],
-    "modules-center": [
-      "custom/notification",
-      "clock",
-      "idle_inhibitor"
-    ],
-    "modules-right": [
-      "network",
-      "wireplumber",
-      "group/hardware",
-      // "group/laptop",
-      "group/powers"
-    ],
-  
-    // Hyprland
-    "hyprland/workspaces": {
-      "disable-scroll": false,
-      "sort-by": "number",
-      "all-outputs": true,
-      "warp-on-scroll": false,
-      "format": "{id}",
-      "persistent-workspaces": {
-        "*": 5
-      }
-    },
-    "hyprland/window": {
-      "format": "{title}",
-      "icon": true,
-      "icon-size": 20,
-      "max-length": 30,
-      "separate-outputs": true
-    },
-    
-    // System Tray (Beta)
-    "tray": {
-      "icon-size": 21,
-      "spacing": 10
-    },
-  
-    // Quicklinks
-    "group/quicklinks": {
-      "orientation": "horizontal",
-      "modules": [
-        "custom/launcher",
-        "custom/browser",
-        "custom/explorer",
-        "custom/terminal"
-      ]
-    },
-    "custom/launcher": {
-      "format": " ",
-      "tooltip": true,
-      "tooltip-format": " App Launcher",
-      "on-click": "~/.config/rofi/menus/drun.sh"
-    },
-    "custom/browser": {
-      "format": " ",
-      "tooltip": true,
-      "tooltip-format": " Firefox",
-      "on-click": "firefox"
-    },
-    "custom/explorer": {
-      "format": " ",
-      "tooltip": true,
-      "tooltip-format": " Files",
-      "on-click": "nautilus"
-    },
-    "custom/terminal": {
-      "format": " ",
-      "tooltip": true,
-      "tooltip-format": " Kitty",
-      // "on-click": "kitty"
-      "on-click": "foot"
-    },
-  
-    // Center clock & notification
-    "custom/notification": {
-      "tooltip": false,
-      "format": "{icon}",
-      "format-icons": {
-        "notification": "<span foreground='red'><sup></sup></span>",
-        "none": "",
-        "dnd-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-none": "",
-        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-        "inhibited-none": "",
-        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-        "dnd-inhibited-none": ""
-      },
-      "return-type": "json",
-      "exec-if": "which swaync-client",
-      "exec": "swaync-client -swb",
-      "on-click": "swaync-client -t -sw",
-      "on-click-right": "swaync-client -d -sw",
-      "escape": true
-    },
-    "clock": {
-      "format": "{:%a %d %b %H:%M}",
-      // "format-alt": "{:%a, %d %b %Y}", // Mon, 25 Dec 2006
-      "tooltip-format": "<tt><small>{calendar}</small></tt>",
-      "calendar": {
-        "mode"          : "month",
-        "mode-mon-col"  : 3,
-        "on-scroll"     : 1,
-        "format": {
-          "months":     "<span color='#ffead3'><b>{}</b></span>",
-          "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-          "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-          "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-        }
-      },
-      "actions":  {
-        "on-click-right": "mode",
-        "on-click-forward": "tz_up",
-        "on-click-backward": "tz_down",
-        "on-scroll-up": "shift_up",
-        "on-scroll-down": "shift_down"
-      }
-    },
-    "idle_inhibitor": {
-      "format": "{icon} ",
-      "format-icons": {
-        "activated": "",
-        "deactivated": ""
-      },
-      "tooltip-format-activated": "Idle inhibitor enabled",
-      "tooltip-format-deactivated": "Idle inhibitor disabled",
-      "start-activated": false
-    },
-  
-    // Network setup
-    "network": {
-      "format": "{ifname}",
-      "format-wifi": "",
-      "format-linked": "{ifname} (No IP) ",
-      "format-ethernet": "",
-      "format-disconnected": "⚠",
-      "tooltip-format": "{essid}",
-      "tooltip-format-ethernet": "{ifname} - {ipaddr}",
-      "tooltip-format-wifi": "{essid} - {ipaddr}",
-      "tooltip-format-disconnected": ""
-    },
-  
-    // Audio setup
-    "wireplumber": {
-      "format": "{volume}% {icon}",
-      "format-muted": "0%  ",
-      "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-      "format-icons": ["", " ", " "],
-      "max-volume": 100,
-      "scroll-step": 2,
-      "tooltip": false
-    },
-  
-    // Hardware Info Group
-    "group/hardware": {
-      "orientation": "horizontal",
-      "modules": [
-        "disk",
-        "cpu",
-        "memory",
-        "temperature"
-      ]
-    },
-    "disk": {
-      "format": " {percentage_used}% ",
-      "tooltip-format": "{used} /{total} on {path} ({percentage_used}%)",
-      "path": "/"
-    },
-    "cpu": {
-      "format": " {usage}% ",
-      "tooltip": false
-    },
-    "memory": {
-      "format": " {}%"
-    },
-    "temperature": {
-      "critical-threshold": 80,
-      "format": "{temperatureC}°C {icon}",
-      "format-icons": ["", "", ""]
-    },
-  
-    // Laptop Group
-    "group/laptop": {
-      "orientation": "horizontal",
-      "modules": [
-        "backlight",
-        "battery"
-      ]
-    },
-    "backlight": {
-      // "device": "acpi_video1",
-      "format": "{percent}% {icon}",
-      "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
-    "battery": {
-      "states": {
-        "warning": 30,
-        "critical": 15
-      },
-      "format": "{capacity}% {icon}",
-      "format-full": "{capacity}% {icon}",
-      "format-charging": "{capacity}% ",
-      "format-plugged": "{capacity}% ",
-      "format-alt": "{time} {icon}",
-      "format-icons": ["", "", "", "", ""]
-    },
-  
-    // Power Group
-    "group/powers": {
-      "orientation": "horizontal",
-      "modules": [
-        "power-profiles-daemon",
-        "custom/power-menu"
-      ]
-    },
-    "power-profiles-daemon": {
-      "format": "{icon} ",
-      "tooltip-format": "Power profile: {profile}",
-      "tooltip": true,
-      "format-icons": {
-        "default": "",
-        "performance": "",
-        "balanced": "",
-        "power-saver": ""
-      }
-    },
-    "custom/power-menu": {
-      "format": " ",
-      "tooltip": true,
-      "tooltip-format": " Power Menu!",
-      "on-click": "wlogout"
+  "font": "JetBrainsMono Nerd Font",
+  "reload_style_on_change": true,
+  "spacing": 7, // Gaps between modules (4px)
+  "modules-left": [
+    "group/quicklinks",
+    "hyprland/workspaces",
+    // "hyprland/window",
+    "tray"
+  ],
+  "modules-center": [
+    "custom/notification",
+    "clock",
+    "idle_inhibitor"
+  ],
+  "modules-right": [
+    "network",
+    "wireplumber",
+    "group/hardware",
+    // "group/laptop",
+    "group/powers"
+  ],
+
+  // Hyprland
+  "hyprland/workspaces": {
+    "disable-scroll": false,
+    "sort-by": "number",
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{id}",
+    "persistent-workspaces": {
+      "*": 5
     }
-  }
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    "icon": true,
+    "icon-size": 20,
+    "max-length": 30,
+    "separate-outputs": true
+  },
   
+  // System Tray (Beta)
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  },
+
+  // Quicklinks
+  "group/quicklinks": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/launcher",
+      "custom/browser",
+      "custom/explorer",
+      "custom/terminal"
+    ]
+  },
+  "custom/launcher": {
+    "format": " ",
+    "tooltip": true,
+    "tooltip-format": " App Launcher",
+    "on-click": "~/.config/rofi/menus/drun.sh"
+  },
+  "custom/browser": {
+    "format": " ",
+    "tooltip": true,
+    "tooltip-format": " Firefox",
+    "on-click": "firefox"
+  },
+  "custom/explorer": {
+    "format": " ",
+    "tooltip": true,
+    "tooltip-format": " Files",
+    "on-click": "nautilus"
+  },
+  "custom/terminal": {
+    "format": " ",
+    "tooltip": true,
+    "tooltip-format": " Kitty",
+    // "on-click": "kitty"
+    "on-click": "foot"
+  },
+
+  // Center clock & notification
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "clock": {
+    "format": "{:%a %d %b %H:%M}",
+    // "format-alt": "{:%a, %d %b %Y}", // Mon, 25 Dec 2006
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode"          : "month",
+      "mode-mon-col"  : 3,
+      "on-scroll"     : 1,
+      "format": {
+        "months":     "<span color='#ffead3'><b>{}</b></span>",
+        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions":  {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "idle_inhibitor": {
+    "format": "{icon} ",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    },
+    "tooltip-format-activated": "Idle inhibitor enabled",
+    "tooltip-format-deactivated": "Idle inhibitor disabled",
+    "start-activated": true
+  },
+
+  // Network setup
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "",
+    "format-linked": "{ifname} (No IP) ",
+    "format-ethernet": "",
+    "format-disconnected": "⚠",
+    "tooltip-format": "{essid}",
+    "tooltip-format-ethernet": "{ifname} - {ipaddr}",
+    "tooltip-format-wifi": "{essid} - {ipaddr}",
+    "tooltip-format-disconnected": ""
+  },
+
+  // Audio setup
+  "wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-muted": "0%  ",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "format-icons": ["", " ", " "],
+    "max-volume": 100,
+    "scroll-step": 2,
+    "tooltip": false
+  },
+
+  // Hardware Info Group
+  "group/hardware": {
+    "orientation": "horizontal",
+    "modules": [
+      "disk",
+      "cpu",
+      "memory",
+      "temperature"
+    ]
+  },
+  "disk": {
+    "format": " {percentage_used}% ",
+    "tooltip-format": "{used} /{total} on {path} ({percentage_used}%)",
+    "path": "/"
+  },
+  "cpu": {
+    "format": " {usage}% ",
+    "tooltip": false
+  },
+  "memory": {
+    "format": " {}%"
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", ""]
+  },
+
+  // Laptop Group
+  "group/laptop": {
+    "orientation": "horizontal",
+    "modules": [
+      "backlight",
+      "battery"
+    ]
+  },
+  "backlight": {
+    // "device": "acpi_video1",
+    "format": "{percent}% {icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-full": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  // Power Group
+  "group/powers": {
+    "orientation": "horizontal",
+    "modules": [
+      "power-profiles-daemon",
+      "custom/power-menu"
+    ]
+  },
+  "power-profiles-daemon": {
+    "format": "{icon} ",
+    "tooltip-format": "Power profile: {profile}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  "custom/power-menu": {
+    "format": " ",
+    "tooltip": true,
+    "tooltip-format": " Power Menu!",
+    "on-click": "wlogout"
+  }
+}

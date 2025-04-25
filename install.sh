@@ -39,10 +39,7 @@ if [ "$DISTRO" = "Arch Linux" ]; then
     # - fastfetch - CLI system information tool
     sudo pacman -Sy --needed --noconfirm git man-db lm_sensors zsh zsh-syntax-highlighting zsh-autosuggestions zsh-completions
 
-    # Install packages for the ~/.zshrc from the AUR
-    # - oh-my-zsh-git - managed zsh config
-    # - chroma - add syntax highlighting to files
-    # - nano-syntax-highlighting-git - Syntax highlighting for nano (git version fixes issue from repo)
+    # Install Yay AUR helper if not already installed
     if ! command -v yay &> /dev/null; then
         echo "Yay not installed. Installing..."
         current_dir="$(pwd)"
@@ -60,6 +57,9 @@ if [ "$DISTRO" = "Arch Linux" ]; then
     fi
 
     # Install packages from the AUR
+    # - oh-my-zsh-git - managed zsh config
+    # - chroma - add syntax highlighting to files
+    # - nano-syntax-highlighting-git - Syntax highlighting for nano (git version fixes issue from repo)
     yay -Sy --needed --noconfirm oh-my-zsh-git chroma nano-syntax-highlighting-git
 
     # Detect and configure sensors

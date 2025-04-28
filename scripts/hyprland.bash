@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+
 
 # Audio
 # - pipewire                    => audio/video server
@@ -21,8 +23,10 @@ yay -Sy --needed --noconfirm pipewire pipewire-alsa pipewire-audio pipewire-jack
 # - bluez                       => bluetooth protocol stack
 # - bluez-utils                 => bluetooth utility cli
 # - blueman                     => bluetooth manager gui
+# - iwd                         => Internet Wireless Daemon
+# - wireless_tools              => Tools allowing to manipulate the Wireless Extensions
 echo -e "\033[0;31mInstalling Networking\033[0m"
-yay -Sy --needed --noconfirm networkmanager network-manager-applet bluez bluez-utils blueman
+yay -Sy --needed --noconfirm networkmanager network-manager-applet bluez bluez-utils blueman iwd wireless_tools
 
 
 # Window Manager
@@ -43,6 +47,7 @@ yay -Sy --needed --noconfirm hyprland hypridle hyprlock cliphist swaync waybar r
 # Dependencies
 # - qt5-wayland & qt6-wayland   => Add Qt Wayland Support
 # - xdg-desktop-portal-hyprland => XDG Desktop Portal
+# - xdg-utils                   => CLI tools to assist apps with desktop integration
 # - polkit-kde-agent            => Authentication Agent
 # - libnotify                   => Tool to send notifications
 # - power-profiles-daemon       => Ability to change proformance profile
@@ -55,7 +60,7 @@ yay -Sy --needed --noconfirm hyprland hypridle hyprlock cliphist swaync waybar r
 # - swappy                      => screenshot editor
 # - hyprshade                   => Frontend to Hyprland's screen shader
 echo -e "\033[0;31mInstalling Dependencies\033[0m"
-yay -Sy --needed --noconfirm qt5-wayland qt6-wayland xdg-desktop-portal-hyprland polkit-kde-agent libnotify power-profiles-daemon imagemagick brightnessctl udiskie jq gnome-clocks grimblast-git swappy
+yay -Sy --needed --noconfirm qt5-wayland qt6-wayland xdg-desktop-portal-hyprland xdg-utils polkit-kde-agent libnotify power-profiles-daemon imagemagick brightnessctl udiskie jq gnome-clocks grimblast-git swappy
 
 
 # Fonts
@@ -67,13 +72,12 @@ sudo pacman -Sy --needed --noconfirm ttf-jetbrains-mono-nerd ttf-liberation ttf-
 
 
 # Theming
-# - sweet-gtk-theme-dark        => Dark theme for gtk
-# - obsidian-icon-theme         => Square icons
+# - numix-square-icon-theme-git => Square icons
 # - nwg-look                    => gtk configuration tool
 # - qt5ct                       => qt5 configuration tool
 # - qt6ct                       => qt6 configuration tool
 echo -e "\033[0;31mInstalling Theming System\033[0m"
-yay -Sy --needed --noconfirm sweet-gtk-theme-dark obsidian-icon-theme nwg-look qt5ct qt6ct
+yay -Sy --needed --noconfirm numix-square-icon-theme-git nwg-look qt5ct qt6ct
 
 
 # Display Manager

@@ -9,7 +9,7 @@ set -e
 # then getting the parent directory using relative path
 PROJECT_ROOT=$(dirname $(realpath "$0"))
 PROJECT_ROOT=$(realpath "$PROJECT_ROOT/../../..")
-SAVED_DOTFILES_DIR="$PROJECT_ROOT/dotfiles"
+SAVED_DOTFILES_DIR="$PROJECT_ROOT/dotfiles/archlinux"
 
 
 if [ $# -eq 0 ]; then

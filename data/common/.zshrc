@@ -1,17 +1,15 @@
 # ------------------------------
 # Dependencies
 # ------------------------------
-# List of all dependencies required for the config to work at it's best
-# Repo:
+# List of all dependencies required for this config to work at it's best
 # - git - show git repository status
+# - oh-my-zsh - managed zsh config
 # - zsh - the shell itself
 # - zsh-syntax-highlighting - Fish shell like syntax highlighting for Zsh
 # - zsh-autosuggestions - Fish-like autosuggestions for zsh
 # - zsh-completions - Additional completion definitions for Zsh
-# AUR
-# - oh-my-zsh-git - managed zsh config
-# - chroma - add syntax highlighting to files
-# - archey4 - nice display of system info on terminal start
+# - lm_sensors(Optional) - for battery status and temperature in fastfetch
+# - fastfetch(Optional) - nice display of system info on terminal start
 
 
 # ------------------------------
@@ -21,7 +19,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/usr/share/oh-my-zsh
 
-# Set name of the theme to load. (Optional)
+# Set name of the theme to load.
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="kennethreitz"
 
@@ -54,15 +52,12 @@ less_termcap[md]="${fg_bold[green]}"
 # Output system info using fastfetch (https://github.com/fastfetch-cli/fastfetch)
 [ -r /usr/bin/fastfetch ] && clear && /usr/bin/fastfetch -c archey.jsonc
 
-# Compilation flags
-export ARCHFLAGS="-arch x86_64"
+# Load local aliases
+[ -r ${HOME}/.aliases.zsh ] && source ${HOME}/.aliases.zsh
+
+# Load local functions
+[ -r ${HOME}/.functions.zsh ] &&  source ${HOME}/.functions.zsh
 
 # Replace VI with nano as the default text editor
 export VISUAL=nano
 export EDITOR=nano
-
-# Load local aliases
-source ${HOME}/.aliases.zsh
-
-# Load local functions
-# source ${HOME}/.functions

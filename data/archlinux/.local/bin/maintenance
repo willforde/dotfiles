@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo "Clean firefox user profile"
+if [ -f "/usr/bin/firefox" ] && [ -f "/usr/bin/profile-cleaner" ]; then
+    profile-cleaner f # firefox
+fi
+
+echo "Clean chromium user profile"
+if [ -f "/usr/bin/chromium" ] && [ -f "/usr/bin/profile-cleaner" ]; then
+     profile-cleaner c # chromium
+fi
+
+echo "Remove profile crashrecovery directorys"
+if [ -f "/usr/bin/psd" ]; then
+    psd clean
+fi
+
+echo "Use yay to remove orphan packages"
+yay -Yc --noconfirm
+
+echo "Clean pacman & yay cache"
+yay -Sc --noconfirm
+
+echo "Refresh pacman mirrors"
+sudo systemctl start reflector.service
+
+echo "Updating locate database"
+sudo updatedb

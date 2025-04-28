@@ -3,14 +3,14 @@
 # Local convenient alias
 
 # Pacman aliases
-alias pacin="sudo /usr/bin/pacman --needed -Sy"
+alias pacin="sudo /usr/bin/pacman --needed -S"
 alias pacup="sudo /usr/bin/pacman -Syu"
 alias pacrm="sudo /usr/bin/pacman -Rs"
-alias pacinfo="/usr/bin/pacman -Si"
+alias pacinfo="/usr/bin/pacman -Qi"
 
 # Yay aliases
 alias yayup="yay -Syu --devel --timeupdate"
-alias yayin="yay -Sy"
+alias yayin="yay --needed -S"
 
 # Protection aliases
 alias chown="chown --preserve-root"

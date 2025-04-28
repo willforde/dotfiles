@@ -1,0 +1,6 @@
+{
+    "check_updates": false,
+    "notify_updates": false,
+    "mpv_ext": true,
+    "mpv_ext_no_ovr": true
+}

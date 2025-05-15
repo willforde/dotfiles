@@ -64,7 +64,7 @@ function install_gparted() {
 }
 
 
-# Install Steam
+# Install Steam and other games apps
 function install_game_apps() {
     # Generated en_US.UTF-8 locale, preventing invalid pointer error
     sudo sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
@@ -78,6 +78,13 @@ function install_game_apps() {
     sudo pacman -S --noconfirm --needed --asdeps ttf-liberation
     sudo pacman -S --noconfirm --needed steam
     yay -S --noconfirm --needed heroic-games-launcher
+}
+
+# Install Office apps
+function install_office_apps() {
+    # Install WPS Office
+    yay -S --noconfirm --needed --asdeps ttf-wps-fonts
+    yay -S --noconfirm --needed wps-office
 }
 
 # Copy over static files

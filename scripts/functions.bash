@@ -167,3 +167,14 @@ function ask_for_games() {
     fi
     return $cached_steam_answer
 }
+
+function ask_for_office() {
+    # Return cached response or ask for user input
+    if [ -z "${cached_office_answer+x}" ]; then # no cache
+        set +e
+        ask_yes_no "Do you want to install WPS Office?"
+        cached_office_answer=$?
+        set -e
+    fi
+    return $cached_office_answer
+}

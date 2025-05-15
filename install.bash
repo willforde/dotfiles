@@ -34,7 +34,9 @@ if [ "$DISTRO" = "Arch Linux" ]; then
     options=("1|Gnome" "2|Hyprland")
     show_option_menu "Choose a desktop environment to install" options
     if ask_for_applications; then
-        ask_for_games || true  # Response is cached for later
+        # Response is cached for later
+        ask_for_games || true
+        ask_for_office || true
     fi
     system=$RET
 
@@ -77,6 +79,11 @@ if [ "$DISTRO" = "Arch Linux" ]; then
         # Install Steam if requested
         if ask_for_games; then
             install_game_apps
+        fi
+
+        # Install office apps
+        if ask_for_office; then
+            install_office_apps
         fi
 
         # Install app spcific dotfiles

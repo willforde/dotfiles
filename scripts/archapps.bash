@@ -93,13 +93,13 @@ function copy_staticfiles() {
 
     # Variety
     mkdir -p ~/.config/variety/
-    if [ ! -e "$staticfiles_dir/variety.conf" ]
+    if [ ! -e "$staticfiles_dir/variety.conf" ]; then
         cp "$staticfiles_dir/variety.conf" ~/.config/variety/variety.conf
     fi
 
     # MPV Shim
     mkdir -p ~/.config/jellyfin-mpv-shim
-    if [ ! -e "$staticfiles_dir/jellyfin-mpv-shim.json" ]
+    if [ ! -e "$staticfiles_dir/jellyfin-mpv-shim.json" ]; then
         cp "$staticfiles_dir/jellyfin-mpv-shim.json" ~/.config/jellyfin-mpv-shim/conf.json
     fi
 }
